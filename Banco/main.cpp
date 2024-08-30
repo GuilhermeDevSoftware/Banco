@@ -1,38 +1,9 @@
 ﻿#include "pch.h"
 #include <iostream>
 #include <iomanip>
+#include "conta.hpp"
 
 using namespace std;
-
-struct Conta {
-    string cpf;
-    string numero;
-    string nome;
-    float saldo;
-
-    void sacar( float saque) { //Em c++ o & é uma referencia, ou seja
-        if (saque > saldo) {          // o valor da função chamada na main vai receber esse valor
-            cout << "Operacao impossivel." << endl;
-            return;
-        }
-        if (saque <= 0) {
-            cout << "Operacao impossivel." << endl;
-            return;
-        }
-
-        saldo -= saque;
-    }
-
-    void deposito( float deposito) {
-        if (deposito <= 0) {
-            cout << "Operacao impossivel." << endl;
-            return;
-        }
-
-        saldo += deposito;
-    }
-};
-
 
 int main()
 {
@@ -42,10 +13,10 @@ int main()
     pessoa1.nome = "Guilherme";
     pessoa1.saldo = 300;
 
-    pessoa1.deposito(150);
-    pessoa1.sacar(150);
+    pessoa1.depositar(3000);
+    pessoa1.sacar(250);
 
-    cout << fixed<< setprecision(2) <<"O saldo de " << pessoa1.nome << " e : " << pessoa1.saldo << endl;
+    cout << "O saldo de " << pessoa1.nome << " e : " << pessoa1.saldo << endl;
 
     return 0;
 }
