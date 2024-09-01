@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 #include <iostream>
-#include <iomanip>
+#include <string>
 #include "conta.hpp"
 
 using namespace std;
@@ -8,15 +8,17 @@ using namespace std;
 int main()
 {
     Conta pessoa1;
-    pessoa1.cpf = "421.111.445-6";
-    pessoa1.numero = "123.456.789";
-    pessoa1.nome = "Guilherme";
-    pessoa1.saldo = 300;
 
     pessoa1.depositar(3000);
-    pessoa1.sacar(250);
+    pessoa1.sacar(250.45);
+    pessoa1.DefinirNomeTitular("Guilherme");
+    pessoa1.DefinirCpf("4555.555.51");
+    pessoa1.DefinirNumero("152121");
 
-    cout << "O saldo de " << pessoa1.nome << " e : " << pessoa1.saldo << endl;
+    cout << "Nome: " << pessoa1.recuperaNome() << endl;
+    cout << "Numero: " << pessoa1.recuperaNumero() << endl;
+    cout << "SALDO: " << pessoa1.recuperaSaldo() << endl;
+    cout << "CPF: " << pessoa1.recuperaCPF() << endl;
 
     return 0;
 }
