@@ -1,6 +1,14 @@
 #include "pch.h"
 #include "conta.hpp"
 
+Conta::Conta(std::string cpf, std::string numero, std::string nomeTitular) :
+cpf(cpf), 
+numero(numero), 
+nomeTitular(nomeTitular), 
+saldo(0)
+{
+}
+
 //Metodos
 void Conta::sacar (float saque) {
     if (saque > saldo) {          
@@ -24,30 +32,18 @@ void Conta::depositar(float deposito) {
     saldo += deposito;
 }
 
-void Conta::DefinirNomeTitular(std::string Nome) {
-    nomeTitular = Nome;
-}
-
-void Conta::DefinirNumero(std::string Numero) {
-    numero = Numero;
-}
-
-void Conta::DefinirCpf(std::string CPF) {
-    cpf = CPF;
-}
-
-std::string Conta::recuperaNome() {
+std::string Conta::recuperaNome() const{
     return nomeTitular;
 }
 
-std::string Conta::recuperaNumero() {
+std::string Conta::recuperaNumero() const{
     return numero;
 }
 
-float Conta::recuperaSaldo() {
-    return saldo;
+float Conta::recuperaSaldo () const{
+    return saldo; // Saldo manipulado do depositar e sacar
 }
 
-std::string Conta::recuperaCPF() {
+std::string Conta::recuperaCPF() const{
     return cpf;
 }
